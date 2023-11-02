@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import JourneyContext from '../context/JourneyContext';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -40,24 +40,24 @@ function Combate() {
       return Object.values(hero.powerstats).reduce((total, value) => total + parseInt(value, 10), 0);
     };
     
-    const getWinner = () => {
-      if (selectedHeroes.length === 2) {
-        const totalPowerStatsHero1 = calculateTotalPowerStats(selectedHeroes[0]);
-        const totalPowerStatsHero2 = calculateTotalPowerStats(selectedHeroes[1]);
-    
-        if (totalPowerStatsHero1 > totalPowerStatsHero2) {
-          return setWinner(selectedHeroes[0].name);
-        } else if (totalPowerStatsHero2 > totalPowerStatsHero1) {
-          return setWinner(selectedHeroes[1].name);
-        } else {
-          return 'Empate!';
+    useEffect(() => {
+      const calculateWinner = () => {
+        if (selectedHeroes.length === 2) {
+          const totalPowerStatsHero1 = calculateTotalPowerStats(selectedHeroes[0]);
+          const totalPowerStatsHero2 = calculateTotalPowerStats(selectedHeroes[1]);
+  
+          if (totalPowerStatsHero1 > totalPowerStatsHero2) {
+            setWinner(selectedHeroes[0].name);
+          } else if (totalPowerStatsHero2 > totalPowerStatsHero1) {
+            setWinner(selectedHeroes[1].name);
+          } else {
+            setWinner('Empate!');
+          }
         }
-      }
-    
-      return '';
-    };
-    
-    getWinner();
+      };
+  
+      calculateWinner();
+    }, [selectedHeroes, setWinner]);
 
   return (
   <div>

@@ -20,7 +20,7 @@ function Sidenav() {
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
     />
-    <Button onClick={openModal} disabled={combate? '' : 'disabled'}>COMBATE</Button>
+    <Button onClick={openModal} disabled={combate? false : true}>COMBATE</Button>
   </div>
   );
 }

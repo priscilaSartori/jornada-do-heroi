@@ -1,45 +1,47 @@
 .heroi {
-position: absolute;
-left: 200px;
-top: 80px;
+  position: absolute;
+  left: 200px;
+  top: 65px;
 }
 
 .heroiUl {
-width: 100%;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  justify-content: space-between;
 }
 
 .heroiLi {
-list-style-type: none;
-width: 180px;
-height: 280px;
-border: 2px solid greenyellow;
-background-color: gray;
-margin: 10px;
+  list-style-type: none;
+  width: 180px;
+  height: 280px;
+  border: 2px solid greenyellow;
+  background-color: gray;
+  margin: 3px;
 }
 
 .heroiLiSelected {
-list-style-type: none;
-background-color: green;
-width: 180px;
-height: 280px;
-margin: 10px;
-
+  list-style-type: none;
+  background-color: green;
+  width: 180px;
+  height: 280px;
+  margin: 3px;
 }
 
 .heroiImg {
-width: 130px;
-height: 200px;    
-border: 2px solid greenyellow;
-border-top: none;
+  width: 130px;
+  height: 200px;    
+  border: 2px solid greenyellow;
+  border-top: none;
 }
 
 .heroiH4 {
-margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 .heroiP {
-margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 }

@@ -41,7 +41,7 @@ function Heroi() {
           {filteredHeroes.map((hero) => (
             <li
               key={hero.id}
-              className={`${isHeroSelected(hero) ? 'heroi-li-selected' : 'heroi-li'}`}
+              className={`${isHeroSelected(hero) ? styles.heroiLiSelected : styles.heroiLi}`}
               onClick={() => selectHero(hero)}
             >
               <img className={styles.heroiImg} src={hero.images.sm} alt={hero.name} />
