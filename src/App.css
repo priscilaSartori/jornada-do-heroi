@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.heroi-ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.heroi-li {
+  list-style-type: none;
+  width: 180px;
+  height: 280px;
+  border: 2px solid greenyellow;
+  background-color: green;
+  margin: 10px;
+}
+
+.heroi-li img {
+  width: 130px;
+  height: 200px;    
+  border: 2px solid greenyellow;
+  border-top: none;
+}
+
+
+.heroi-li h4 {
+  margin: 10px 0 0 0;
+}
+
+.heroi-li p {
+  margin: 10px 0 0 0;
+}
