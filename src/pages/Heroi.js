@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import useFetch from '../hooks/useFetch';
 import JourneyContext from '../context/JourneyContext';
+import Combate from '../components/Combate';
 
 function Heroi() {
   const { herois } = useFetch();
@@ -34,6 +35,7 @@ function Heroi() {
 
   return (
     <div>
+      <Combate />
       <h1>Lista de Heróis</h1>
       <input
         type="text"

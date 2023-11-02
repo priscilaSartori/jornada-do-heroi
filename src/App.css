@@ -73,3 +73,13 @@
 .heroi-p {
   margin: 10px 0 0 0;
 }
+
+.combate {
+  display: flex;
+  flex-direction: row;
+}
+
+.combate-img-powerstats {
+  display: flex;
+  flex-direction: row;
+}

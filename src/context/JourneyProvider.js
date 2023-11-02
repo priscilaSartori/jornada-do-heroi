@@ -5,19 +5,23 @@ import JourneyContext from './JourneyContext';
 function JourneyProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedHeroes, setSelectedHeroes] = useState([]);
-  const [elementClass, setElementClass] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [winner, setWinner] = useState('');
 
   const values = useMemo(() => ({
     searchTerm,
     setSearchTerm,
     selectedHeroes,
     setSelectedHeroes,
-    elementClass,
-    setElementClass,
+    modalOpen,
+    setModalOpen,
+    winner,
+    setWinner,
   }), [
     searchTerm,
     selectedHeroes,
-    elementClass,
+    modalOpen,
+    winner, 
   ]);
 
   return (
