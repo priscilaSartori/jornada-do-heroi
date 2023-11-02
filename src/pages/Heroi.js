@@ -4,11 +4,33 @@ import JourneyContext from '../context/JourneyContext';
 
 function Heroi() {
   const { herois } = useFetch();
-  const { searchTerm, setSearchTerm } = useContext(JourneyContext);
-
+  const { 
+    searchTerm, 
+    setSearchTerm, 
+    selectedHeroes, 
+    setSelectedHeroes,
+  } = useContext(JourneyContext);
+  
   const filteredHeroes = herois.filter((hero) =>
     hero.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const selectHero = (hero) => {
+    if (selectedHeroes.includes(hero)) {
+      return setSelectedHeroes(selectedHeroes.filter((selectedHero) => selectedHero !== hero));
+    }
+    if (selectedHeroes.length < 2) {
+      setSelectedHeroes((prevSelectedHeroes) => {
+        if (prevSelectedHeroes.includes(hero)) {
+          return prevSelectedHeroes.filter((selectedHero) => selectedHero !== hero);
+        } else {
+          return [...prevSelectedHeroes, hero];
+        }
+      });
+    }
+  };
+
+  const isHeroSelected = (hero) => selectedHeroes.includes(hero);
 
   return (
     <div>
@@ -21,10 +43,14 @@ function Heroi() {
       />
       <ul className='heroi-ul'>
         {filteredHeroes.map((hero) => (
-          <li key={hero.id} className='heroi-li'>
-            <img src={hero.images.sm} alt={hero.name} />
-            <h4>{hero.name}</h4>
-            <p>{hero.id}</p>
+          <li
+            key={hero.id}
+            className={`${isHeroSelected(hero) ? 'heroi-li-selected' : 'heroi-li'}`}
+            onClick={() => selectHero(hero)}
+          >
+            <img className='heroi-img' src={hero.images.sm} alt={hero.name} />
+            <h4 className='heroi-h4'>{hero.name}</h4>
+            <p className='heroi-p'>{hero.id}</p>
           </li>
         ))}
       </ul>

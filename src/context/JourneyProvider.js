@@ -4,12 +4,20 @@ import JourneyContext from './JourneyContext';
 
 function JourneyProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedHeroes, setSelectedHeroes] = useState([]);
+  const [elementClass, setElementClass] = useState('');
 
   const values = useMemo(() => ({
     searchTerm,
     setSearchTerm,
+    selectedHeroes,
+    setSelectedHeroes,
+    elementClass,
+    setElementClass,
   }), [
     searchTerm,
+    selectedHeroes,
+    elementClass,
   ]);
 
   return (

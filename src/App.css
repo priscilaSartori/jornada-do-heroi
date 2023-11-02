@@ -49,22 +49,27 @@
   width: 180px;
   height: 280px;
   border: 2px solid greenyellow;
-  background-color: green;
+  background-color: gray;
   margin: 10px;
 }
 
-.heroi-li img {
+.heroi-img {
   width: 130px;
   height: 200px;    
   border: 2px solid greenyellow;
   border-top: none;
 }
 
+.heroi-li-selected {
+  background-color: green;
+  width: 180px;
+  height: 280px;
+}
 
-.heroi-li h4 {
+.heroi-h4 {
   margin: 10px 0 0 0;
 }
 
-.heroi-li p {
+.heroi-p {
   margin: 10px 0 0 0;
 }
