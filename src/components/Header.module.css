@@ -1,0 +1,10 @@
+.header {
+position: fixed;
+width: 100%;
+text-align: center;
+z-index: 1;
+background-color: DarkBlue;
+color: #fff;
+height: 80px;
+}
+  

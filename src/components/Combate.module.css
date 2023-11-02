@@ -1,0 +1,9 @@
+.combate {
+  display: flex;
+  flex-direction: row;
+}
+
+.combateImgPowerstats {
+  display: flex;
+  flex-direction: row;
+}

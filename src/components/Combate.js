@@ -4,25 +4,25 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import styles from './Combate.module.css';
+import styleHeroi from '../pages/Heroi.module.css'
 
 function Combate() {
   const { 
       modalOpen,
       setModalOpen,
       selectedHeroes,
+      setSelectedHeroes,
       winner,
       setWinner,
+      setSearchTerm,
   } = useContext(JourneyContext);
-
-  const openModal = () => {
-  setModalOpen(true);
-  };
 
   const closeModal = () => {
   setModalOpen(false);
+  setSelectedHeroes([]);
+  setSearchTerm('')
   };
-
-  const combate = selectedHeroes.length === 2;
 
   const style = {
       position: 'absolute',
@@ -61,39 +61,36 @@ function Combate() {
 
   return (
   <div>
-      { combate && 
-      <Button onClick={openModal}>Open modal</Button>
-      }
-      <Modal
-          open={modalOpen}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-          >
-          <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-              {`Winner ${winner}`}
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }} className='combate'>
-              {selectedHeroes.map((hero) => (
-                  <div key={hero.id}>
-                      <div className='combate-img-powerstats'>
-                          <img className='heroi-img' src={hero.images.sm} alt={hero.name} />
-                          <div>
-                              <p className='heroi-p'>{hero.powerstats.intelligence}</p>
-                              <p className='heroi-p'>{hero.powerstats.strength}</p>
-                              <p className='heroi-p'>{hero.powerstats.speed}</p>
-                              <p className='heroi-p'>{hero.powerstats.durability}</p>
-                              <p className='heroi-p'>{hero.powerstats.power}</p>
-                              <p className='heroi-p'>{hero.powerstats.combat}</p>
-                          </div>
-                      </div>
-                      <h4 className='heroi-h4'>{hero.name}</h4>
-                  </div>
-                  ))}
-              </Typography>
-              <Button onClick={closeModal}>Fechar</Button>
-          </Box>
-      </Modal>
+    <Modal
+        open={modalOpen}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        >
+        <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+            {`Winner ${winner}`}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }} className={styles.combate}>
+            {selectedHeroes.map((hero) => (
+                <div key={hero.id}>
+                    <div className={styles.combateImgPowerstats}>
+                        <img className={styleHeroi.heroiImg} src={hero.images.sm} alt={hero.name} />
+                        <div>
+                            <p className={styleHeroi.heroiP}>{hero.powerstats.intelligence}</p>
+                            <p className={styleHeroi.heroiP}>{hero.powerstats.strength}</p>
+                            <p className={styleHeroi.heroiP}>{hero.powerstats.speed}</p>
+                            <p className={styleHeroi.heroiP}>{hero.powerstats.durability}</p>
+                            <p className={styleHeroi.heroiP}>{hero.powerstats.power}</p>
+                            <p className={styleHeroi.heroiP}>{hero.powerstats.combat}</p>
+                        </div>
+                    </div>
+                    <h4 className={styleHeroi.heroiH4}>{hero.name}</h4>
+                </div>
+                ))}
+            </Typography>
+            <Button onClick={closeModal}>Fechar</Button>
+        </Box>
+    </Modal>
   </div>
   );
 }

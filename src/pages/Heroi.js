@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import useFetch from '../hooks/useFetch';
 import JourneyContext from '../context/JourneyContext';
 import Combate from '../components/Combate';
+import styles from './Heroi.module.css';
 
 function Heroi() {
   const { herois } = useFetch();
   const { 
-    searchTerm, 
-    setSearchTerm, 
+    searchTerm,
     selectedHeroes, 
     setSelectedHeroes,
   } = useContext(JourneyContext);
@@ -36,28 +36,22 @@ function Heroi() {
   return (
     <div>
       <Combate />
-      <h1>Lista de Heróis</h1>
-      <input
-        type="text"
-        placeholder="Filtrar por nome"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <ul className='heroi-ul'>
-        {filteredHeroes.map((hero) => (
-          <li
-            key={hero.id}
-            className={`${isHeroSelected(hero) ? 'heroi-li-selected' : 'heroi-li'}`}
-            onClick={() => selectHero(hero)}
-          >
-            <img className='heroi-img' src={hero.images.sm} alt={hero.name} />
-            <h4 className='heroi-h4'>{hero.name}</h4>
-            <p className='heroi-p'>{hero.id}</p>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.heroi}>
+        <ul className={styles.heroiUl}>
+          {filteredHeroes.map((hero) => (
+            <li
+              key={hero.id}
+              className={`${isHeroSelected(hero) ? 'heroi-li-selected' : 'heroi-li'}`}
+              onClick={() => selectHero(hero)}
+            >
+              <img className={styles.heroiImg} src={hero.images.sm} alt={hero.name} />
+              <h4 className={styles.heroiH4}>{hero.name}</h4>
+              <p className={styles.heroiP}>{hero.id}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  )
-}
+  )}
 
 export default Heroi;

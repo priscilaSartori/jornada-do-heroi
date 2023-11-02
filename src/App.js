@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
 import Heroi from './pages/Heroi'
+import Sidenav from './components/Sidenav';
+import Header from './components/Header';
 
 function App() {
   
   return (
     <div className="App">
-     <Heroi />
+        <Header />
+        <Sidenav />
+        <Heroi />
     </div>
   );
 }

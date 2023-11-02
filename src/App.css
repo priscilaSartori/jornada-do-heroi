@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
@@ -35,51 +37,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.heroi-ul {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.heroi-li {
-  list-style-type: none;
-  width: 180px;
-  height: 280px;
-  border: 2px solid greenyellow;
-  background-color: gray;
-  margin: 10px;
-}
-
-.heroi-img {
-  width: 130px;
-  height: 200px;    
-  border: 2px solid greenyellow;
-  border-top: none;
-}
-
-.heroi-li-selected {
-  background-color: green;
-  width: 180px;
-  height: 280px;
-}
-
-.heroi-h4 {
-  margin: 10px 0 0 0;
-}
-
-.heroi-p {
-  margin: 10px 0 0 0;
-}
-
-.combate {
-  display: flex;
-  flex-direction: row;
-}
-
-.combate-img-powerstats {
-  display: flex;
-  flex-direction: row;
 }
