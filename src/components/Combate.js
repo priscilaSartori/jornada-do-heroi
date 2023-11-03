@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from './Combate.module.css';
 import styleHeroi from '../pages/Heroi.module.css'
+import {styleBox, styleh2, styleh1} from './CombateStyles';
 
 function Combate() {
   const { 
@@ -23,58 +24,30 @@ function Combate() {
   setSelectedHeroes([]);
   setSearchTerm('')
   };
-
-  const styleBox = {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 1000,
-      height: 500,
-      bgcolor: 'black',
-      color: 'white',
-      border: '2px solid #000',
-      boxShadow: 24,
-      p: 4,
-    };
-
-    const styleh2 = {
-      color: 'yellow',
-      width: '100%',
-      textAlign: 'end',
-      fontSize:"30px",
-    }
-
-    const styleh1 = {
-      color: 'white',
-      width: '100%',
-      textAlign: 'start',
-      fontSize:"30px",
-      paddingLeft: '10px',
-    }
     
-    const calculateTotalPowerStats = (hero) => {
-      return Object.values(hero.powerstats).reduce((total, value) => total + parseInt(value, 10), 0);
-    };
-    
-    useEffect(() => {
-      const calculateWinner = () => {
-        if (selectedHeroes.length === 2) {
-          const totalPowerStatsHero1 = calculateTotalPowerStats(selectedHeroes[0]);
-          const totalPowerStatsHero2 = calculateTotalPowerStats(selectedHeroes[1]);
+  // Função para calcular a soma das estatísticas de poder de um herói
+  const calculateTotalPowerStats = (hero) => {
+    return Object.values(hero.powerstats).reduce((total, value) => total + parseInt(value, 10), 0);
+  };
   
-          if (totalPowerStatsHero1 > totalPowerStatsHero2) {
-            setWinner(selectedHeroes[0].name);
-          } else if (totalPowerStatsHero2 > totalPowerStatsHero1) {
-            setWinner(selectedHeroes[1].name);
-          } else {
-            setWinner('Empate!');
-          }
+  useEffect(() => {
+    const calculateWinner = () => {
+      if (selectedHeroes.length === 2) {
+        const totalPowerStatsHero1 = calculateTotalPowerStats(selectedHeroes[0]);
+        const totalPowerStatsHero2 = calculateTotalPowerStats(selectedHeroes[1]);
+
+        if (totalPowerStatsHero1 > totalPowerStatsHero2) {
+          setWinner(selectedHeroes[0].name);
+        } else if (totalPowerStatsHero2 > totalPowerStatsHero1) {
+          setWinner(selectedHeroes[1].name);
+        } else {
+          setWinner('Empate!');
         }
-      };
-  
-      calculateWinner();
-    }, [selectedHeroes, setWinner]);
+      }
+    };
+
+    calculateWinner();
+  }, [selectedHeroes, setWinner]);
 
   return (
   <div>

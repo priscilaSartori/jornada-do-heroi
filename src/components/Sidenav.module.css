@@ -20,19 +20,19 @@
   font-size: 16px;
 }
 
-.buttonDisabled {
-  background-color: gray;
-  width: 180px;
-  position: absolute;
-  left: 10px;
+.buttonActive {
+  background-color: #ee0e0e !important;
+  color: white !important;
+  width: 180px !important;
+  position: absolute !important;
+  left: 10px !important;
 }
 
-.buttonActive {
-  background-color: #ee0e0e;
-  color: white;
-  width: 180px;
-  position: absolute;
-  left: 10px;
+.buttonDisabled {
+  background-color: gray !important;
+  width: 180px !important;
+  position: absolute !important;
+  left: 10px !important;
 }
 
 .searchInputContainer {

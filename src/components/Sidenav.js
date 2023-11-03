@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
+import styles from './Sidenav.module.css';
 import JourneyContext from '../context/JourneyContext';
 import Button from '@mui/material/Button';
-import styles from './Sidenav.module.css';
 import SearchIcon from '@mui/icons-material/Search';
 
 function Sidenav() {
@@ -25,13 +25,16 @@ function Sidenav() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
     </div>
-    <Button
-      className={`${combate ? styles.buttonActive : styles.buttonDisabled}`}
-      disabled={!combate}
-      onClick={openModal}
-    >
-      Combate
-    </Button>
+    <div>
+      <p>Selecione dois personagens e clique em Combate</p>
+      <Button
+        className={`${combate ? styles.buttonActive : styles.buttonDisabled}`}
+        disabled={!combate}
+        onClick={openModal}
+      >
+        Combate
+      </Button>
+    </div>
   </div>
   );
 }
