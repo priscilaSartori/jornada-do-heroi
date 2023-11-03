@@ -24,18 +24,35 @@ function Combate() {
   setSearchTerm('')
   };
 
-  const style = {
+  const styleBox = {
       position: 'absolute',
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: 400,
-      bgcolor: 'background.paper',
+      width: 1000,
+      height: 500,
+      bgcolor: 'black',
+      color: 'white',
       border: '2px solid #000',
       boxShadow: 24,
       p: 4,
     };
 
+    const styleh2 = {
+      color: 'yellow',
+      width: '100%',
+      textAlign: 'end',
+      fontSize:"30px",
+    }
+
+    const styleh1 = {
+      color: 'white',
+      width: '100%',
+      textAlign: 'start',
+      fontSize:"30px",
+      paddingLeft: '10px',
+    }
+    
     const calculateTotalPowerStats = (hero) => {
       return Object.values(hero.powerstats).reduce((total, value) => total + parseInt(value, 10), 0);
     };
@@ -66,29 +83,70 @@ function Combate() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         >
-        <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-            {`Winner ${winner}`}
-            </Typography>
+        <Box sx={styleBox}>
+          <div className={styles.combateTitle}>
+            <div className={styles.combateTitle}>
+              <Typography sx={styleh2} component="h1">
+                {`Winner`}
+              </Typography>
+              <Typography sx={styleh1} component="h1">
+                {`${winner}`}
+              </Typography>
+              <Button onClick={closeModal}>Fechar</Button>
+            </div>
+          </div>
+          <div className={styles.combateDuelo}>
             <Typography id="modal-modal-description" sx={{ mt: 2 }} className={styles.combate}>
-            {selectedHeroes.map((hero) => (
-                <div key={hero.id}>
-                    <div className={styles.combateImgPowerstats}>
-                        <img className={styleHeroi.heroiImg} src={hero.images.sm} alt={hero.name} />
-                        <div>
-                            <p className={styleHeroi.heroiP}>{hero.powerstats.intelligence}</p>
-                            <p className={styleHeroi.heroiP}>{hero.powerstats.strength}</p>
-                            <p className={styleHeroi.heroiP}>{hero.powerstats.speed}</p>
-                            <p className={styleHeroi.heroiP}>{hero.powerstats.durability}</p>
-                            <p className={styleHeroi.heroiP}>{hero.powerstats.power}</p>
-                            <p className={styleHeroi.heroiP}>{hero.powerstats.combat}</p>
-                        </div>
+              <div className={styles.heroiCard1}>
+                <h3>{selectedHeroes[0]?.name}</h3>
+                <div className={styles.heroiCard2}>
+                  <img className={styles.heroiImg} src={selectedHeroes[0]?.images.sm} alt={selectedHeroes[0]?.name} />
+                  <div className={styles.heroiPowerStats}>
+                  {selectedHeroes[0]?.powerstats && 
+                    Object.keys(selectedHeroes[0]?.powerstats).map((stat, index) => (
+                    <div key={index} className={styles.PowerStatsBall}>
+                      <p className={styleHeroi.heroiP}>{selectedHeroes[0]?.powerstats[stat]}</p>
+                      {selectedHeroes[0]?.powerstats[stat] > selectedHeroes[1]?.powerstats[stat] ? (
+                        <div className={styles.greenBall}></div>
+                      ) : (
+                        <div className={styles.redBall}></div>
+                      )}
                     </div>
-                    <h4 className={styleHeroi.heroiH4}>{hero.name}</h4>
-                </div>
-                ))}
+                  ))}
+                  </div>
+                </div>    
+              </div>
             </Typography>
-            <Button onClick={closeModal}>Fechar</Button>
+              <div className={styles.combatePowerStats}>
+                <p>Intelligence</p>
+                <p>Strength</p>
+                <p>Speed</p>
+                <p>Durability</p>
+                <p>Power</p>
+                <p>Combat</p>
+              </div>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }} className={styles.combate}>
+              <div className={styles.heroiCard1}>
+                <h3>{selectedHeroes[1]?.name}</h3>
+                <div className={styles.heroiCard2}>
+                  <div className={styles.heroiPowerStats}>
+                  {selectedHeroes[1]?.powerstats &&
+                    Object.keys(selectedHeroes[1]?.powerstats).map((stat, index) => (
+                    <div key={index} className={styles.PowerStatsBall}>
+                      {selectedHeroes[1]?.powerstats[stat] > selectedHeroes[0]?.powerstats[stat] ? (
+                        <div className={styles.greenBall}></div>
+                        ) : (
+                          <div className={styles.redBall}></div>
+                        )}
+                      <p className={styleHeroi.heroiP}>{selectedHeroes[1]?.powerstats[stat]}</p>
+                    </div>
+                  ))}
+                  </div>
+                  <img className={styles.heroiImg} src={selectedHeroes[1]?.images.sm} alt={selectedHeroes[1]?.name} />
+                </div>    
+              </div>
+            </Typography>
+          </div>
         </Box>
     </Modal>
   </div>

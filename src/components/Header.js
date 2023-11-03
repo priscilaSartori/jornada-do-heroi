@@ -5,7 +5,7 @@ function Header() {
 
   return (
     <div className={styles.header}>
-       <h1>Lista de Heróis</h1> 
+       <h1>Lista de Personagens das HQ's</h1> 
     </div>
   );
 }

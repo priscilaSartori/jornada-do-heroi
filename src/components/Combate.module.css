@@ -6,4 +6,68 @@
 .combateImgPowerstats {
   display: flex;
   flex-direction: row;
+  width: 500px;
+}
+
+.combateDuelo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.combateTitle {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.heroiCard1 {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  align-items: center;
+}
+
+.heroiCard2 {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  justify-content: space-around;
+}
+
+.heroiImg {
+  width: 250px;
+}
+
+.combatePowerStats {
+  width: 450px;
+  text-align: center;
+  position: absolute;
+  top: 160px;
+  left: 300px;
+}
+
+.combatePowerStats p {
+  margin: 20px 0 45px 0;
+}
+
+.PowerStatsBall {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.greenBall {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%; /* Para torná-lo circular */
+  margin-left: 5px; /* Espaçamento à esquerda da bola */
+}
+
+.redBall {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%; /* Para torná-lo circular */
+  margin-left: 5px; /* Espaçamento à esquerda da bola */
 }

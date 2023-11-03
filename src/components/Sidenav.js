@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import JourneyContext from '../context/JourneyContext';
 import Button from '@mui/material/Button';
 import styles from './Sidenav.module.css';
+import SearchIcon from '@mui/icons-material/Search';
 
 function Sidenav() {
   const { setModalOpen, selectedHeroes, searchTerm, setSearchTerm } = useContext(JourneyContext);
@@ -14,13 +15,23 @@ function Sidenav() {
 
   return (
   <div className={styles.sidenav}>
-    <input
-      type="text"
-      placeholder="Filtrar por nome"
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-    <Button onClick={openModal} disabled={combate? false : true}>COMBATE</Button>
+    <div className={styles.searchInputContainer}>
+      <SearchIcon className={styles.searchIcon} />
+        <input
+          className={styles.searchInput}
+          type="search"
+          placeholder="Pesquisar por nome"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+    </div>
+    <Button
+      className={`${combate ? styles.buttonActive : styles.buttonDisabled}`}
+      disabled={!combate}
+      onClick={openModal}
+    >
+      Combate
+    </Button>
   </div>
   );
 }

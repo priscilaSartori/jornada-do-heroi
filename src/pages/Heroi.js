@@ -45,8 +45,10 @@ function Heroi() {
               onClick={() => selectHero(hero)}
             >
               <img className={styles.heroiImg} src={hero.images.sm} alt={hero.name} />
-              <h4 className={styles.heroiH4}>{hero.name}</h4>
-              <p className={styles.heroiP}>{hero.id}</p>
+              <div className={styles.heroiInfo}>
+                <h4 className={styles.heroiH4}>{hero.name}</h4>
+                <p className={styles.heroiP}>{hero.id}</p>
+              </div>
             </li>
           ))}
         </ul>
