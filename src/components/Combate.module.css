@@ -91,6 +91,30 @@
   }
 }
 
-@media screen and (max-width: 350px) {
-  
+@media screen and (max-width: 450px) {
+  .heroiCard1 h3 {
+    font-size:small;
+    width: 100px;
+  }
+
+  .heroiP {
+    margin: 0 !important;
+  }
+
+  .combatePowerStats {
+    padding-top: 110px;
+    margin-top: 10px;
+  }
+
+  .combatePowerStats p {
+    font-size: small;
+    position: relative;
+    margin: 40px 0 45px 0;
+  }
+
+  .heroiCard2 {
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+  }
 }
