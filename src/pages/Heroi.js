@@ -1,19 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import JourneyContext from '../context/JourneyContext';
 import Combate from '../components/Combate';
 import styles from './Heroi.module.css';
+import {heroisData} from '../hooks/mock';
 
 function Heroi() {
   const { herois } = useFetch();
   console.log(herois)
+  const [heroisDisplay, setHeroisDisplay] = useState([]);
+
   const { 
     searchTerm,
     selectedHeroes, 
     setSelectedHeroes,
   } = useContext(JourneyContext);
   
-  const filteredHeroes = herois.filter((hero) =>
+  useEffect(() => {
+    if (herois.length === 0) {
+      return setHeroisDisplay(heroisData);
+    } setHeroisDisplay(herois)
+  }, [herois])
+   
+  const filteredHeroes = heroisDisplay.filter((hero) =>
     hero.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
