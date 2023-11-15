@@ -1,11 +1,11 @@
 .heroi {
   position: absolute;
-  left: 200px;
-  top: 65px;
-  background-color: Coral;
+  padding: 0 10px;
+  top: 130px;
+  background-color: black;
   height: auto;
   min-height: 100%;
-  width: 85.2%;
+  width: 100%;
 }
 
 .heroiUl {
@@ -29,16 +29,16 @@
 
 .heroiLiSelected {
   list-style-type: none;
-  background-color: Maroon;
+  border: 2px solid #FF0000;
+  background-image: url('https://ae01.alicdn.com/kf/HTB1Ipo8iDnI8KJjSszgq6A8ApXaS/50-140cm-hero-comic-Spider-Man-Iron-Man-Avengers-knitted-cotton-fabric-For-Sewing-diy-Patchwork.jpg');
   width: 180px;
   height: 280px;
   margin: 5px;
 }
 
 .heroiImg {
-  width: 160px;
-  height: 180px;    
-  border: 2px solid black;
+  width: 180px;
+  height: 180px; 
   border-top: none;
 }
 
@@ -48,8 +48,6 @@
   position: relative;
   left: 8px;
   height: 65px;
-  top: 10px;
-  border: 2px solid black;
 }
 
 .heroiH4 {

@@ -25,7 +25,7 @@ function Sidenav() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
     </div>
-    <div>
+    <div className={styles.buttonContainer}>
       <p>Selecione dois personagens e clique em Combate</p>
       <Button
         className={`${combate ? styles.buttonActive : styles.buttonDisabled}`}

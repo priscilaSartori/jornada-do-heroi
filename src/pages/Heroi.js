@@ -6,6 +6,7 @@ import styles from './Heroi.module.css';
 
 function Heroi() {
   const { herois } = useFetch();
+  console.log(herois)
   const { 
     searchTerm,
     selectedHeroes, 
@@ -47,7 +48,7 @@ function Heroi() {
               <img className={styles.heroiImg} src={hero.images.sm} alt={hero.name} />
               <div className={styles.heroiInfo}>
                 <h4 className={styles.heroiH4}>{hero.name}</h4>
-                <p className={styles.heroiP}>{hero.id}</p>
+                <p className={styles.heroiP}>{hero.slug}</p>
               </div>
             </li>
           ))}
