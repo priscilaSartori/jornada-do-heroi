@@ -10,8 +10,8 @@ Recursos Principais
 
 # Layout
 <p align="center">
-  <img width="916" alt="project-jornada-do-heroi" src="https://drive.google.com/uc?export=view&id=1IlPU6zbhS6C8waK6GUf7Y2ssKOcXBDkY">
-  <img width="916" alt="project-jornada-do-heroi" src="https://drive.google.com/uc?export=view&id=1Z9WhFJrxaz4B8AsLymDqydhNVkKWRaii">
+  <img width="916" alt="project-jornada-do-heroi" src="https://github.com/priscilaSartori/jornada-do-heroi/blob/main/src/jornada1.png#:~:text=jornada.mp4-,jornada1.png,-jornada2.png">
+  <img width="916" alt="project-jornada-do-heroi" src="https://github.com/priscilaSartori/jornada-do-heroi/blob/main/src/jornada2.png">
 </p>
 
 
