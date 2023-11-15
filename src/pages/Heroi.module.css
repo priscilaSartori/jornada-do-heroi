@@ -56,3 +56,19 @@
 .heroiP {
   margin: 20px 10px 20px 10px;
 }
+
+@media screen and (max-width: 750px) {
+ .heroi {
+  top: 270px;
+ }
+}
+
+@media screen and (max-width: 400px) {
+  
+}
+
+@media screen and (max-width: 276px) {
+  .heroi {
+    top: 300px;
+   }
+}
