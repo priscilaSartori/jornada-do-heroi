@@ -3,8 +3,8 @@ export const styleBox = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1000,
-  height: 500,
+  width: '80%',
+  height: '80%',
   backgroundColor: 'black',
   color: 'white',
   border: '2px solid #000',
@@ -12,14 +12,14 @@ export const styleBox = {
   p: 4,
   };
 
-  export const styleh2 = {
+export const styleh2 = {
   color: 'yellow',
   width: '100%',
   textAlign: 'end',
   fontSize: "30px",
   };
 
-  export const styleh1 = {
+export const styleh1 = {
   color: 'white',
   width: '100%',
   textAlign: 'start',

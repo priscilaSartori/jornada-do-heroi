@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import styles from './Combate.module.css';
 import styleHeroi from '../pages/Heroi.module.css'
 import {styleBox, styleh2, styleh1} from './CombateStyles';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Combate() {
   const { 
@@ -25,7 +26,6 @@ function Combate() {
   setSearchTerm('')
   };
     
-  // Função para calcular a soma das estatísticas de poder de um herói
   const calculateTotalPowerStats = (hero) => {
     return Object.values(hero.powerstats).reduce((total, value) => total + parseInt(value, 10), 0);
   };
@@ -65,60 +65,58 @@ function Combate() {
               <Typography sx={styleh1} component="h1">
                 {`${winner}`}
               </Typography>
-              <Button onClick={closeModal}>Fechar</Button>
+              <Button onClick={closeModal}><CloseIcon/></Button>
             </div>
           </div>
           <div className={styles.combateDuelo}>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }} className={styles.combate}>
-              <div className={styles.heroiCard1}>
-                <h3>{selectedHeroes[0]?.name}</h3>
-                <div className={styles.heroiCard2}>
-                  <img className={styles.heroiImg} src={selectedHeroes[0]?.images.sm} alt={selectedHeroes[0]?.name} />
-                  <div className={styles.heroiPowerStats}>
-                  {selectedHeroes[0]?.powerstats && 
-                    Object.keys(selectedHeroes[0]?.powerstats).map((stat, index) => (
-                    <div key={index} className={styles.PowerStatsBall}>
-                      <p className={styleHeroi.heroiP}>{selectedHeroes[0]?.powerstats[stat]}</p>
-                      {selectedHeroes[0]?.powerstats[stat] > selectedHeroes[1]?.powerstats[stat] ? (
-                        <div className={styles.greenBall}></div>
+            <div className={styles.heroiCard1}>
+              <h3>{selectedHeroes[0]?.name}</h3>
+              <img className={styles.heroiImg2} src={selectedHeroes[0]?.images.sm} alt={selectedHeroes[0]?.name} /> 
+              <div className={styles.heroiCard2}>
+                <img className={styles.heroiImg} src={selectedHeroes[0]?.images.sm} alt={selectedHeroes[0]?.name} />
+                <div className={styles.heroiPowerStats}>
+                {selectedHeroes[0]?.powerstats && 
+                  Object.keys(selectedHeroes[0]?.powerstats).map((stat, index) => (
+                  <div key={index} className={styles.PowerStatsBall}>
+                    <p className={styleHeroi.heroiP}>{selectedHeroes[0]?.powerstats[stat]}</p>
+                    {selectedHeroes[0]?.powerstats[stat] > selectedHeroes[1]?.powerstats[stat] ? (
+                      <div className={styles.greenBall}></div>
+                    ) : (
+                      <div className={styles.redBall}></div>
+                    )}
+                  </div>
+                ))}
+                </div>
+              </div>   
+            </div>
+            <div className={styles.combatePowerStats}>
+              <p>Intelligence</p>
+              <p>Strength</p>
+              <p>Speed</p>
+              <p>Durability</p>
+              <p>Power</p>
+              <p>Combat</p>
+            </div>
+            <div className={styles.heroiCard1}>
+              <h3>{selectedHeroes[1]?.name}</h3>
+              <img className={styles.heroiImg2} src={selectedHeroes[1]?.images.sm} alt={selectedHeroes[1]?.name} />
+              <div className={styles.heroiCard2}>
+                <div className={styles.heroiPowerStats}>
+                {selectedHeroes[1]?.powerstats &&
+                  Object.keys(selectedHeroes[1]?.powerstats).map((stat, index) => (
+                  <div key={index} className={styles.PowerStatsBall}>
+                    {selectedHeroes[1]?.powerstats[stat] > selectedHeroes[0]?.powerstats[stat] ? (
+                      <div className={styles.greenBall}></div>
                       ) : (
                         <div className={styles.redBall}></div>
                       )}
-                    </div>
-                  ))}
+                    <p className={styleHeroi.heroiP}>{selectedHeroes[1]?.powerstats[stat]}</p>
                   </div>
-                </div>    
-              </div>
-            </Typography>
-              <div className={styles.combatePowerStats}>
-                <p>Intelligence</p>
-                <p>Strength</p>
-                <p>Speed</p>
-                <p>Durability</p>
-                <p>Power</p>
-                <p>Combat</p>
-              </div>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }} className={styles.combate}>
-              <div className={styles.heroiCard1}>
-                <h3>{selectedHeroes[1]?.name}</h3>
-                <div className={styles.heroiCard2}>
-                  <div className={styles.heroiPowerStats}>
-                  {selectedHeroes[1]?.powerstats &&
-                    Object.keys(selectedHeroes[1]?.powerstats).map((stat, index) => (
-                    <div key={index} className={styles.PowerStatsBall}>
-                      {selectedHeroes[1]?.powerstats[stat] > selectedHeroes[0]?.powerstats[stat] ? (
-                        <div className={styles.greenBall}></div>
-                        ) : (
-                          <div className={styles.redBall}></div>
-                        )}
-                      <p className={styleHeroi.heroiP}>{selectedHeroes[1]?.powerstats[stat]}</p>
-                    </div>
-                  ))}
-                  </div>
-                  <img className={styles.heroiImg} src={selectedHeroes[1]?.images.sm} alt={selectedHeroes[1]?.name} />
-                </div>    
-              </div>
-            </Typography>
+                ))}
+                </div>
+                <img className={styles.heroiImg} src={selectedHeroes[1]?.images.sm} alt={selectedHeroes[1]?.name} />
+              </div>    
+            </div>
           </div>
         </Box>
     </Modal>

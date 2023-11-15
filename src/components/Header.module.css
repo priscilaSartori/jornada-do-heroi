@@ -5,6 +5,6 @@
   z-index: 1;
   background-color: #ff9f59;
   color: #fff;
-  height: 80px;
+  min-height: 80px;
+  height: auto;
 }
-  

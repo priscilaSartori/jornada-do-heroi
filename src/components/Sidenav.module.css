@@ -18,16 +18,18 @@
 }
 
 .searchInputContainer {
-  width: 30%;
+  width: 40%;
   height: 40px;
   border: 1px solid #ccc;
   border-radius: 4px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   background-color: #fff;
 }
 
 .sidenavInput {
+  width: 40%;
   position: absolute;
   text-align: center;
   padding: 8px 12px;
@@ -76,4 +78,47 @@
   background-color: #E9967A !important;
   width: 180px !important;
   height: 40px !important;
+}
+
+@media screen and (max-width: 750px) {
+  .sidenav {
+    flex-direction: column;
+    height: auto;
+    padding-top: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .buttonContainer {
+    margin: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttonContainer p {
+    margin-right: 30px;
+    /* width: 300px; */
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .searchInputContainer {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .searchInputContainer svg {
+    display: none;
+  }
+  .searchIcon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 276px) {
+  .sidenav {
+    top: 110px;
+  }
 }
